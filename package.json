@@ -1,6 +1,6 @@
 {
   "name": "vue-croppie",
-  "version": "1.0.3",
+  "version": "1.1.4",
   "description": "VueJs wrapper for Croppie",
   "main": "index.js",
   "scripts": {
