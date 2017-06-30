@@ -3,7 +3,7 @@ import 'croppie/croppie.css'
 
 const VueCroppie = {
     install(Vue, options) {
-        const comp = {
+        const comp = Vue.extend({
             render(h){
                 return h('div', {ref: 'croppieContainer', id: 'croppieContainer'})
             },
@@ -38,7 +38,7 @@ const VueCroppie = {
                     })
                 }
             }
-        }
+        })
         Vue.component('vue-coppie', comp)
     }
 };
