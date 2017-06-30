@@ -19,7 +19,7 @@ Vue.use(VueCroppie)
 
 # Sample 
 
-This sample below will produce [this](https://jofftiquez.github.io/vue-croppie/)
+This sample below will produce [this](https://jofftiquez.github.io/vue-croppie/).
 
 ```
 <template>
@@ -34,7 +34,11 @@ This sample below will produce [this](https://jofftiquez.github.io/vue-croppie/)
         <!-- the result -->
         <img v-bind:src="cropped">
 
-
+        <button @click="bind()">Bind</button>
+        <!-- Rotate angle is Number -->
+        <button @click="rotate(-90)">Rotate Left</button>
+        <button @click="rotate(90)">Rotate Right</button>
+        <button @click="crop()">Crop</button>
     </div>
 </template>
 
@@ -64,10 +68,9 @@ export default {
             // Like the one the mounted() function above.
             this.$refs.croppieRef.bind({
                 url: url,
-            })
+            });
         },
         crop() {
-
             // Here we are getting the result via callback function
             // and set the result to this.cropped which is being 
             // used to display the result above.
@@ -86,11 +89,19 @@ export default {
 
 # API
 
-All of the options and methods are based on [Croppie Documentation](https://foliotek.github.io/Croppie/). All property names and method names are `"==="` the same if you know what I mean.
+All of the properties and methods are based on [Croppie Documentation](https://foliotek.github.io/Croppie/). All property and method names are `"==="` the same if you know what I mean.
 
-Except for thest few things below.
+Except for these few things below.
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
 | `ref` (required) | `Object` | `none` | `ref` is used to create a reference to the child component, in order to have access to it's methods and properties. Specific example is to access the `result()` function of `vue-croppie` from outside the component. | 
 | `resultType` | `String` | `base64` | The image encoding of the cropped image via `result()`. Also available in [Croppie Documentation](https://foliotek.github.io/Croppie/). |
+
+# License
+
+### MIT
+
+Use and abuse at your own risk.
+
+`</>` with ❤️ by Jofferson Tiquez
