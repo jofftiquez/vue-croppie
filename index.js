@@ -5,41 +5,105 @@ const VueCroppie = {
     install(Vue, options) {
         const comp = Vue.extend({
             render(h){
-                return h('div', {ref: 'croppieContainer', id: 'croppieContainer'})
+                return h('div', {
+                    class: this.customClass,
+                    ref: 'croppieContainer', 
+                    id: 'croppieContainer', 
+                })
             },
             mounted() {
                 this.initCroppie();
             },
             props: {
-                cropSrc: null,
-                cropped: null,
-                croppie: null,
+                boundary: {
+                    type: Object,
+                    default: function() {
+                        return {
+                            width: 400,
+                            height: 400
+                        }
+                    }
+                },
+                customClass: String,
+                enableExif: Boolean,
+                enableOrientation: Boolean,
+                enableZoom: {
+                    type: Boolean,
+                    default: true
+                },
+                enforceBoundary: {
+                    type: Boolean,
+                    default: true
+                },
+                mouseWheelZoom: {
+                    type: Boolean,
+                    default: true
+                },
+                showZoomer: {
+                    type: Boolean,
+                    default: true
+                },
+                viewport: {
+                    type: Object,
+                    default: function() {
+                        return {
+                            width: 200,
+                            height: 200,
+                            type: 'square'
+                        }
+                    }
+                },
+                // custom props
+                resultType: {
+                    type: String,
+                    default: 'base64'
+                }
+            },
+            data() {
+                return {
+                    croppie: null,
+                }
             },
             methods: {
                 initCroppie() {
                     let el = this.$refs.croppieContainer;
                     this.croppie = new Croppie(el, {
-                        enableOrientation: true,
-                        viewport: {
-                            width: 250,
-                            height: 250,
-                        },
-                        boundary: {
-                            width: this.cropperWidth,
-                            height: 400
-                        },
-                        showZoomer: false,
-                    })
-                    this.croppie.bind(this.cropSrc)
+                        boundary: this.boundary,
+                        enableExif: this.enableExif,
+                        enableOrientation: this.enableOrientation,
+                        enableZoom: this.enableZoom,
+                        enforceBoundary: this.enforceBoundary,
+                        mouseWheelZoom: this.mouseWheelZoom,
+                        viewport: this.viewport,
+                        showZoomer: this.showZoomer
+                    });
                 },
-                crop() {
-                    this.croppie.result('base64').then(output => {
-                        this.$emit('on_crop', output)
+                bind(options) {
+                    this.croppie.bind(options)
+                },
+                destroy() {
+                    this.croppie.destroy();
+                },
+                get(cb) {
+                    cb(this.croppie.get())
+                },
+                rotate(angle) {
+                    this.croppie.rotate(angle);
+                },
+                setZoom(value) {
+                    this.croppie.setZoom(value);
+                },
+                update(croppe) {
+                    this.croppie.update(croppe);
+                },
+                result(cb) {
+                    this.croppie.result(this.resultType).then(output => {
+                        cb(output)
                     })
                 }
             }
         })
-        Vue.component('vue-coppie', comp)
+        Vue.component('vue-croppie', comp)
     }
 };
 
