@@ -1,0 +1,22 @@
+{
+  "name": "vue-croppie",
+  "version": "1.0.0",
+  "description": "VueJs wrapper for Croppie",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jofftiquez/vue-croppie.git"
+  },
+  "author": "jofftiquez@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jofftiquez/vue-croppie/issues"
+  },
+  "homepage": "https://github.com/jofftiquez/vue-croppie#readme",
+  "dependencies": {
+    "croppie": "^2.4.1"
+  }
+}
