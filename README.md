@@ -45,8 +45,8 @@ This sample below will produce [this](https://jofftiquez.github.io/vue-croppie/)
 <script>
 export default {
     mounted() {
-        // Upon mounting of the component, we accessed the bind({...}) method,
-        // to put an initial image to the canvas.
+        // Upon mounting of the component, we accessed the .bind({...})
+        // function to put an initial image on the canvas.
         this.$refs.croppieRef.bind({
             url: 'http://i.imgur.com/Fq2DMeH.jpg',
         })
@@ -65,7 +65,8 @@ export default {
             // Randomize cat photos, nothing special here.
             let url = this.images[Math.floor(Math.random() * 4)]
 
-            // Like the one the mounted() function above.
+            // Just like what we did with .bind({...}) on 
+            // the mounted() function above.
             this.$refs.croppieRef.bind({
                 url: url,
             });
@@ -97,6 +98,7 @@ Except for these few things below.
 |--------|------|---------|-------------|
 | `ref` (required) | `Object` | `none` | `ref` is used to create a reference to the child component, in order to have access to it's methods and properties. Specific example is to access the `result()` function of `vue-croppie` from outside the component. | 
 | `resultType` | `String` | `base64` | The image encoding of the cropped image via `result()`. Also available in [Croppie Documentation](https://foliotek.github.io/Croppie/). |
+| `customClass` | `String` | `none` | You can pass a custom class or classes to the `props` `customClass` like `customClass="class1 class2 class3"` |
 
 # License
 
