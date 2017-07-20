@@ -1,4 +1,4 @@
-<center><img src="http://i.imgur.com/Gt1xIqP.png"></center>
+<center><img width="200" src="http://i.imgur.com/Gt1xIqP.png"></center>
 
 # VueCroppie
 
