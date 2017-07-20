@@ -1,5 +1,5 @@
-import Croppie from 'croppie'
-import 'croppie/croppie.css'
+import Croppie from 'croppie';
+import 'croppie/croppie.css';
 
 const VueCroppie = {
     install(Vue, options) {
@@ -102,7 +102,7 @@ const VueCroppie = {
                     })
                 }
             }
-        })
+        });
         Vue.component('vue-croppie', comp)
     }
 };

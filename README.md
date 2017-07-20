@@ -6,15 +6,15 @@ VueCroppie is a [Vue](https://vuejs.org/) 2 wrapper for [Croppie](https://foliot
 
 ### NPM
 
-`npm install vue-croppie`
+`npm install vue-croppie --save`
 
 ### Usage
 
 ```
-import Vue from 'vue'
-import VueCroppie from 'vue-croppie'
+import Vue from 'vue';
+import VueCroppie from 'vue-croppie';
 
-Vue.use(VueCroppie)
+Vue.use(VueCroppie);
 ```
 
 # Sample 
@@ -90,7 +90,7 @@ export default {
 
 # API
 
-All of the properties and methods are based on [Croppie Documentation](https://foliotek.github.io/Croppie/). All property and method names are `"==="` the same if you know what I mean.
+All of the properties and methods are based on [Croppie documentation](https://foliotek.github.io/Croppie/). All property and method names are `"==="` the same if you know what I mean.
 
 Except for these few things below.
 
@@ -106,4 +106,4 @@ Except for these few things below.
 
 Use and abuse at your own risk.
 
-`</>` with ❤️ by Jofferson Tiquez
+`</>` with ❤️ by Jofferson Ramirez Tiquez
