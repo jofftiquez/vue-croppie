@@ -1,3 +1,5 @@
+<center><img src="http://i.imgur.com/Gt1xIqP.png"></center>
+
 # VueCroppie
 
 VueCroppie is a [Vue](https://vuejs.org/) 2 wrapper for [Croppie](https://foliotek.github.io/Croppie/) a beautiful photo cropping tool for Javascript by [foliotek](http://www.foliotek.com/).
@@ -106,4 +108,4 @@ Except for these few things below.
 
 Use and abuse at your own risk.
 
-`</>` with ❤️ by Jofferson Ramirez Tiquez
+`</p>` with ❤️ by Jofferson Ramirez Tiquez
