@@ -29,7 +29,6 @@ This sample below will produce [this](https://jofftiquez.github.io/vue-croppie/)
         <!-- Note that 'ref' is important here (value can be anything). read the description about `ref` below. -->
         <vue-croppie 
             ref=croppieRef 
-            resultType="base64"
             :enableOrientation="true">
         </vue-croppie>
 
@@ -54,15 +53,17 @@ export default {
         })
     },
     data() {
-        cropped: null,
-        images: [
-            'http://i.imgur.com/fHNtPXX.jpg',
-            'http://i.imgur.com/ecMUngU.jpg',
-            'http://i.imgur.com/7oO6zrh.jpg',
-            'http://i.imgur.com/miVkBH2.jpg'
-        ]
+        return {
+            cropped: null,
+            images: [
+                'http://i.imgur.com/fHNtPXX.jpg',
+                'http://i.imgur.com/ecMUngU.jpg',
+                'http://i.imgur.com/7oO6zrh.jpg',
+                'http://i.imgur.com/miVkBH2.jpg'
+            ]
+        }
     },
-    methods() {
+    methods: {
         bind() {
             // Randomize cat photos, nothing special here.
             let url = this.images[Math.floor(Math.random() * 4)]
@@ -77,7 +78,11 @@ export default {
             // Here we are getting the result via callback function
             // and set the result to this.cropped which is being 
             // used to display the result above.
-            this.$refs.croppieRef.result((output) => {
+            let options = {
+                format: 'jpeg', 
+                circle: true
+            }
+            this.$refs.croppieRef.result(options, (output) => {
                 this.cropped = output;
             });
         },
@@ -101,6 +106,10 @@ Except for these few things below.
 | `ref` (required) | `Object` | `none` | `ref` is used to create a reference to the child component, in order to have access to it's methods and properties. Specific example is to access the `result()` function of `vue-croppie` from outside the component. | 
 | `resultType` | `String` | `base64` | The image encoding of the cropped image via `result()`. Also available in [Croppie Documentation](https://foliotek.github.io/Croppie/). |
 | `customClass` | `String` | `none` | You can pass a custom class or classes to the `props` `customClass` like `customClass="class1 class2 class3"` |
+
+# Updates 
+
+`1.2.x` - Result options are now being passed through the `this.$refs.croppieRef.result(options, callback)`.
 
 # License
 
