@@ -53,11 +53,6 @@ const VueCroppie = {
                         }
                     }
                 },
-                // custom props
-                resultType: {
-                    type: String,
-                    default: 'base64'
-                }
             },
             data() {
                 return {
@@ -96,8 +91,9 @@ const VueCroppie = {
                 update(croppe) {
                     this.croppie.update(croppe);
                 },
-                result(cb) {
-                    this.croppie.result(this.resultType).then(output => {
+                result(options, cb) {
+                    if(!options) options = {type: 'base64'}
+                    this.croppie.result(options).then(output => {
                         cb(output)
                     })
                 }
