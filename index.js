@@ -94,8 +94,8 @@ const VueCroppie = {
                 result(options, cb) {
                     if(!options) options = {type: 'base64'}
                     this.croppie.result(options).then(output => {
-                        cb(output)
-                    })
+                        cb(output);
+                    });
                 }
             }
         });
