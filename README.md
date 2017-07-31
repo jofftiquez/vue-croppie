@@ -2,6 +2,8 @@
 
 # VueCroppie
 
+[![Join the chat at https://gitter.im/vue-croppie/Lobby](https://badges.gitter.im/vue-croppie/Lobby.svg)](https://gitter.im/vue-croppie/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 VueCroppie is a [Vue](https://vuejs.org/) 2 wrapper for [Croppie](https://foliotek.github.io/Croppie/) a beautiful photo cropping tool for Javascript by [foliotek](http://www.foliotek.com/).
 
 # Installation
