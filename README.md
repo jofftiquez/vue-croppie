@@ -97,6 +97,21 @@ export default {
 </script>
 ```
 
+### Using Options
+
+All [Croppie options](https://foliotek.github.io/Croppie/) were converted to props to be able use them in the `vue-croppie` component.
+
+*Usage*
+```html
+<vue-croppie
+    ref=croppieRef
+    :enableOrientation="true"
+    :mouseWheelZoom="false"
+    :viewport="{ width: 200, height: 200, type: 'circle' }"
+>
+</vue-croppie>
+```
+
 # API
 
 All of the properties and methods are based on [Croppie documentation](https://foliotek.github.io/Croppie/). All property and method names are `"==="` the same if you know what I mean.
