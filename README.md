@@ -124,7 +124,18 @@ Except for these few things below.
 | `resultType` | `String` | `base64` | The image encoding of the cropped image via `result()`. Also available in [Croppie Documentation](https://foliotek.github.io/Croppie/). |
 | `customClass` | `String` | `none` | You can pass a custom class or classes to the `props` `customClass` like `customClass="class1 class2 class3"` |
 
+# FAQ
+
+**How to clear/destroy coppie?** 
+
+I added a new method called `refresh()` and can be used as `this.$refs.croppieRef.refresh()`, but the croppie instance is now being refreshed automatically after every `crop()` invocation. 
+
+*Helpful links*
+[#358](https://github.com/Foliotek/Croppie/issues/352) - Official croppie page.
+
 # Updates 
+
+`1.2.3` - Added automatic refreshing of `croppie` instance after every `crop()` invocation.
 
 `1.2.x` - Result options are now being passed through the `this.$refs.croppieRef.result(options, callback)`.
 
