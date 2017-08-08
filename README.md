@@ -135,9 +135,12 @@ I added a new method called `refresh()` and can be used as `this.$refs.croppieRe
 
 # Updates 
 
-`1.2.3` - Added automatic refreshing of `croppie` instance after every `crop()` invocation.
+**1.2.3**
+- Added automatic refreshing of `croppie` instance after every `crop()` invocation.
+- New method `refresh()` which destroys and re-create the croppie instance.
 
-`1.2.x` - Result options are now being passed through the `this.$refs.croppieRef.result(options, callback)`.
+**1.2.x**
+- Result options are now being passed through the `this.$refs.croppieRef.result(options, callback)`.
 
 # License
 
