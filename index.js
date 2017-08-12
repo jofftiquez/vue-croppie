@@ -56,12 +56,17 @@ const VueCroppie = {
             },
             data() {
                 return {
-                    croppie: null,
+                    croppie: null
                 }
             },
             methods: {
                 initCroppie() {
                     let el = this.$refs.croppieContainer;
+                    
+                    el.addEventListener('update', (ev) => {
+                        this.$emit('update', ev.detail);
+                    });
+
                     this.croppie = new Croppie(el, {
                         boundary: this.boundary,
                         enableExif: this.enableExif,
@@ -88,12 +93,10 @@ const VueCroppie = {
                 setZoom(value) {
                     this.croppie.setZoom(value);
                 },
-                update(croppe) {
-                    this.croppie.update(croppe);
-                },
                 result(options, cb) {
                     if(!options) options = {type: 'base64'}
                     this.croppie.result(options).then(output => {
+                        this.$emit('result', output);
                         cb(output);
                         this.refresh();
                     });
