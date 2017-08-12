@@ -31,7 +31,9 @@ This sample below will produce [this](https://jofftiquez.github.io/vue-croppie/)
         <!-- Note that 'ref' is important here (value can be anything). read the description about `ref` below. -->
         <vue-croppie 
             ref=croppieRef 
-            :enableOrientation="true">
+            :enableOrientation="true"
+            @result="result"
+            @update="update">
         </vue-croppie>
 
         <!-- the result -->
@@ -41,7 +43,8 @@ This sample below will produce [this](https://jofftiquez.github.io/vue-croppie/)
         <!-- Rotate angle is Number -->
         <button @click="rotate(-90)">Rotate Left</button>
         <button @click="rotate(90)">Rotate Right</button>
-        <button @click="crop()">Crop</button>
+        <button @click="crop()">Crop Via Callback</button>
+        <button @click="cropViaEvent()">Crop Via Event</button>
     </div>
 </template>
 
@@ -76,6 +79,7 @@ export default {
                 url: url,
             });
         },
+        // CALBACK USAGE
         crop() {
             // Here we are getting the result via callback function
             // and set the result to this.cropped which is being 
@@ -87,6 +91,16 @@ export default {
             this.$refs.croppieRef.result(options, (output) => {
                 this.cropped = output;
             });
+        },
+        // EVENT USAGE
+        cropViaEvent() {
+            this.$refs.croppieREf.result(options);
+        },
+        result(output) {
+            this.cropped = output;
+        },
+        update(val) {
+            console.log(val);
         },
         rotate(rotationAngle) {
             // Rotates the image
@@ -124,6 +138,14 @@ Except for these few things below.
 | `resultType` | `String` | `base64` | The image encoding of the cropped image via `result()`. Also available in [Croppie Documentation](https://foliotek.github.io/Croppie/). |
 | `customClass` | `String` | `none` | You can pass a custom class or classes to the `props` `customClass` like `customClass="class1 class2 class3"` |
 
+# Events
+
+| Option | Type | Usage | Description |
+|--------|------|---------|-------------|
+| `update` | function | `@updated="fn"` | Gets triggered when the croppie element has been zoomed, dragged or cropped  |
+| `result` | function | `@result="fn"` | Gets triggered when the image has been cropped. Returns the cropped image. |
+
+
 # FAQ
 
 **How to clear/destroy coppie?** 
@@ -134,6 +156,11 @@ I added a new method called `refresh()` and can be used as `this.$refs.croppieRe
 [#358](https://github.com/Foliotek/Croppie/issues/352) - Official croppie page.
 
 # Updates 
+
+**1.2.5 - Aug 12, 2017**
+- Cropped image output can now be retrieve via vue event.
+- Added `result` event.
+- Added `updated` event.
 
 **1.2.3**
 - Added automatic refreshing of `croppie` instance after every `crop()` invocation.

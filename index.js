@@ -96,8 +96,11 @@ const VueCroppie = {
                 result(options, cb) {
                     if(!options) options = {type: 'base64'}
                     this.croppie.result(options).then(output => {
-                        this.$emit('result', output);
-                        cb(output);
+                        if(!cb) {
+                            this.$emit('result', output);
+                        } else {
+                            cb(output);
+                        }
                         this.refresh();
                     });
                 },
