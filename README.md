@@ -94,7 +94,7 @@ export default {
         },
         // EVENT USAGE
         cropViaEvent() {
-            this.$refs.croppieREf.result(options);
+            this.$refs.croppieRef.result(options);
         },
         result(output) {
             this.cropped = output;
