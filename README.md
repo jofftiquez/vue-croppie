@@ -157,6 +157,11 @@ I added a new method called `refresh()` and can be used as `this.$refs.croppieRe
 
 # Updates 
 
+**1.3.0 - Aug 16, 2017**
+- Added webpack build
+- Fixes #5
+- Fixes #14
+
 **1.2.5 - Aug 12, 2017**
 - Cropped image output can now be retrieve via vue event.
 - Added `result` event.
