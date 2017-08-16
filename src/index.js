@@ -114,4 +114,4 @@ const VueCroppie = {
     }
 };
 
-module.exports = VueCroppie;
+export default VueCroppie;

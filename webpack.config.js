@@ -4,12 +4,18 @@ var CompressionPlugin = require('compression-webpack-plugin');
 
 function createConfig(target) {
     var name = 'index.js';
+
+    if(target !== 'commonjs2') {
+        name = 'vue-croppie.js'
+    }
+
     var output = {
         library: 'VueCroppie',
         libraryTarget: target,
         path: path.resolve(__dirname, 'dist'),
         filename: name
     }
+    
     if(typeof target === 'undefined') {
         name = 'vue-croppie.js';
         output = {
@@ -17,6 +23,7 @@ function createConfig(target) {
             filename: name
         }
     }
+
     return {
         name: target,
         entry: './src/index.js',
@@ -66,6 +73,6 @@ function createConfig(target) {
 }
 
 module.exports = [
-    createConfig(),
+    createConfig('var'),
     createConfig('commonjs2')
 ]
