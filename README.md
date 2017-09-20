@@ -142,7 +142,7 @@ Except for these few things below.
 
 | Option | Type | Usage | Description |
 |--------|------|---------|-------------|
-| `update` | function | `@updated="fn"` | Gets triggered when the croppie element has been zoomed, dragged or cropped  |
+| `update` | function | `@update="fn"` | Gets triggered when the croppie element has been zoomed, dragged or cropped  |
 | `result` | function | `@result="fn"` | Gets triggered when the image has been cropped. Returns the cropped image. |
 
 
