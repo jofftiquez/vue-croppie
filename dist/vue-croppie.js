@@ -72,7 +72,7 @@ var VueCroppie =
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _croppie = __webpack_require__(1);
@@ -84,122 +84,127 @@ __webpack_require__(6);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var VueCroppie = {
-    install: function install(Vue, options) {
-        var comp = Vue.extend({
-            render: function render(h) {
-                return h('div', {
-                    class: this.customClass,
-                    ref: 'croppieContainer',
-                    id: 'croppieContainer'
-                });
-            },
-            mounted: function mounted() {
-                this.initCroppie();
-            },
-
-            props: {
-                boundary: {
-                    type: Object,
-                    default: function _default() {
-                        return {
-                            width: 400,
-                            height: 400
-                        };
-                    }
-                },
-                customClass: String,
-                enableExif: Boolean,
-                enableOrientation: Boolean,
-                enableZoom: {
-                    type: Boolean,
-                    default: true
-                },
-                enforceBoundary: {
-                    type: Boolean,
-                    default: true
-                },
-                mouseWheelZoom: {
-                    type: Boolean,
-                    default: true
-                },
-                showZoomer: {
-                    type: Boolean,
-                    default: true
-                },
-                viewport: {
-                    type: Object,
-                    default: function _default() {
-                        return {
-                            width: 200,
-                            height: 200,
-                            type: 'square'
-                        };
-                    }
-                }
-            },
-            data: function data() {
-                return {
-                    croppie: null
-                };
-            },
-
-            methods: {
-                initCroppie: function initCroppie() {
-                    var _this = this;
-
-                    var el = this.$refs.croppieContainer;
-
-                    el.addEventListener('update', function (ev) {
-                        _this.$emit('update', ev.detail);
-                    });
-
-                    this.croppie = new _croppie2.default(el, {
-                        boundary: this.boundary,
-                        enableExif: this.enableExif,
-                        enableOrientation: this.enableOrientation,
-                        enableZoom: this.enableZoom,
-                        enforceBoundary: this.enforceBoundary,
-                        mouseWheelZoom: this.mouseWheelZoom,
-                        viewport: this.viewport,
-                        showZoomer: this.showZoomer
-                    });
-                },
-                bind: function bind(options) {
-                    this.croppie.bind(options);
-                },
-                destroy: function destroy() {
-                    this.croppie.destroy();
-                },
-                get: function get(cb) {
-                    cb(this.croppie.get());
-                },
-                rotate: function rotate(angle) {
-                    this.croppie.rotate(angle);
-                },
-                setZoom: function setZoom(value) {
-                    this.croppie.setZoom(value);
-                },
-                result: function result(options, cb) {
-                    var _this2 = this;
-
-                    if (!options) options = { type: 'base64' };
-                    this.croppie.result(options).then(function (output) {
-                        if (!cb) {
-                            _this2.$emit('result', output);
-                        } else {
-                            cb(output);
-                        }
-                        _this2.refresh();
-                    });
-                },
-                refresh: function refresh() {
-                    this.croppie.destroy();
-                    this.initCroppie();
-                }
-            }
+  install: function install(Vue, options) {
+    var comp = Vue.extend({
+      render: function render(h) {
+        return h('div', {
+          class: this.customClass,
+          ref: 'croppieContainer',
+          id: 'croppieContainer'
         });
-        Vue.component('vue-croppie', comp);
-    }
+      },
+      mounted: function mounted() {
+        this.initCroppie();
+      },
+
+      props: {
+        boundary: {
+          type: Object,
+          default: function _default() {
+            return {
+              width: 400,
+              height: 400
+            };
+          }
+        },
+        customClass: String,
+        enableExif: Boolean,
+        enableOrientation: Boolean,
+        enableResize: {
+          type: Boolean,
+          default: true
+        },
+        enableZoom: {
+          type: Boolean,
+          default: true
+        },
+        enforceBoundary: {
+          type: Boolean,
+          default: true
+        },
+        mouseWheelZoom: {
+          type: Boolean,
+          default: true
+        },
+        showZoomer: {
+          type: Boolean,
+          default: true
+        },
+        viewport: {
+          type: Object,
+          default: function _default() {
+            return {
+              width: 200,
+              height: 200,
+              type: 'square'
+            };
+          }
+        }
+      },
+      data: function data() {
+        return {
+          croppie: null
+        };
+      },
+
+      methods: {
+        initCroppie: function initCroppie() {
+          var _this = this;
+
+          var el = this.$refs.croppieContainer;
+
+          el.addEventListener('update', function (ev) {
+            _this.$emit('update', ev.detail);
+          });
+
+          this.croppie = new _croppie2.default(el, {
+            boundary: this.boundary,
+            enableExif: this.enableExif,
+            enableOrientation: this.enableOrientation,
+            enableZoom: this.enableZoom,
+            enableResize: this.enableResize,
+            enforceBoundary: this.enforceBoundary,
+            mouseWheelZoom: this.mouseWheelZoom,
+            viewport: this.viewport,
+            showZoomer: this.showZoomer
+          });
+        },
+        bind: function bind(options) {
+          this.croppie.bind(options);
+        },
+        destroy: function destroy() {
+          this.croppie.destroy();
+        },
+        get: function get(cb) {
+          cb(this.croppie.get());
+        },
+        rotate: function rotate(angle) {
+          this.croppie.rotate(angle);
+        },
+        setZoom: function setZoom(value) {
+          this.croppie.setZoom(value);
+        },
+        result: function result(options, cb) {
+          var _this2 = this;
+
+          if (!options) options = { type: 'base64' };
+          this.croppie.result(options).then(function (output) {
+            if (!cb) {
+              _this2.$emit('result', output);
+            } else {
+              cb(output);
+            }
+            _this2.refresh();
+          });
+        },
+        refresh: function refresh() {
+          this.croppie.destroy();
+          this.initCroppie();
+        }
+      }
+    });
+    Vue.component('vue-croppie', comp);
+  }
 };
 
 exports.default = VueCroppie;
