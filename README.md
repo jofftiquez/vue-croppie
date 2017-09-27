@@ -122,6 +122,7 @@ All [Croppie options](https://foliotek.github.io/Croppie/) were converted to pro
     :enableOrientation="true"
     :mouseWheelZoom="false"
     :viewport="{ width: 200, height: 200, type: 'circle' }"
+    @result="fn"
 >
 </vue-croppie>
 ```
@@ -144,6 +145,10 @@ Except for these few things below.
 |--------|------|---------|-------------|
 | `update` | function | `@update="fn"` | Gets triggered when the croppie element has been zoomed, dragged or cropped  |
 | `result` | function | `@result="fn"` | Gets triggered when the image has been cropped. Returns the cropped image. |
+
+*Note:*
+
+`@result` event is only available if **NO callback function was passed** to `this.$refs.croppieRef.result({})`. See [here](https://github.com/jofftiquez/vue-croppie/blob/3046d96588ccc992d23f9a541eddd504326946d0/src/index.js#L104)
 
 
 # FAQ
