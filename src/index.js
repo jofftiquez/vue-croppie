@@ -84,13 +84,17 @@ const VueCroppie = {
           });
         },
         bind(options) {
-          this.croppie.bind(options)
+          return this.croppie.bind(options)
         },
         destroy() {
           this.croppie.destroy();
         },
         get(cb) {
-          cb(this.croppie.get())
+          if(cb){
+            cb(this.croppie.get())
+          } else {
+            return this.croppie.get()
+          }
         },
         rotate(angle) {
           this.croppie.rotate(angle);
@@ -100,13 +104,14 @@ const VueCroppie = {
         },
         result(options, cb) {
           if(!options) options = {type: 'base64'}
-            this.croppie.result(options).then(output => {
+            return this.croppie.result(options).then(output => {
               if(!cb) {
                 this.$emit('result', output);
               } else {
                 cb(output);
               }
               this.refresh();
+              return output
             });
         },
         refresh() {
