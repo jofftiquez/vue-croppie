@@ -170,13 +170,17 @@ var VueCroppie = {
           });
         },
         bind: function bind(options) {
-          this.croppie.bind(options);
+          return this.croppie.bind(options);
         },
         destroy: function destroy() {
           this.croppie.destroy();
         },
         get: function get(cb) {
-          cb(this.croppie.get());
+          if (cb) {
+            cb(this.croppie.get());
+          } else {
+            return this.croppie.get();
+          }
         },
         rotate: function rotate(angle) {
           this.croppie.rotate(angle);
@@ -188,13 +192,14 @@ var VueCroppie = {
           var _this2 = this;
 
           if (!options) options = { type: 'base64' };
-          this.croppie.result(options).then(function (output) {
+          return this.croppie.result(options).then(function (output) {
             if (!cb) {
               _this2.$emit('result', output);
             } else {
               cb(output);
             }
             _this2.refresh();
+            return output;
           });
         },
         refresh: function refresh() {
