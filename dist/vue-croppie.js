@@ -392,7 +392,7 @@ exports.default = VueCroppie;
             if (img.src === src) {// If image source hasn't changed resolve immediately
                 _resolve();
                 return;
-            } 
+            }
 
             img.exifdata = null;
             img.removeAttribute('crossOrigin');
@@ -403,7 +403,7 @@ exports.default = VueCroppie;
                 if (doExif) {
                     EXIF.getData(img, function () {
                         _resolve();
-                    });    
+                    });
                 }
                 else {
                     _resolve();
@@ -763,7 +763,7 @@ exports.default = VueCroppie;
                 self.options.viewport.width += deltaX;
                 css(self.elements.viewport, {
                     width: self.options.viewport.width + 'px'
-                }); 
+                });
             }
 
             _updateOverlay.call(self);
@@ -1166,7 +1166,7 @@ exports.default = VueCroppie;
 
         self.options.update.call(self, data);
         if (self.$ && typeof Prototype == 'undefined') {
-            self.$(self.element).trigger('update', data); 
+            self.$(self.element).trigger('update', data);
         }
         else {
             var ev;
@@ -1324,7 +1324,7 @@ exports.default = VueCroppie;
         if (exif && !customOrientation) {
             var orientation = getExifOrientation(img);
             drawCanvas(canvas, img, num(orientation || 0, 10));
-        } 
+        }
         else if (customOrientation) {
             drawCanvas(canvas, img, customOrientation);
         }
@@ -1362,7 +1362,7 @@ exports.default = VueCroppie;
 
         if (data.backgroundColor) {
             ctx.fillStyle = data.backgroundColor;
-            ctx.fillRect(0, 0, outWidth, outHeight);
+            ctx.fillRect(0, 0, canvasWidth, canvasHeight);
         }
 
         // start fixing data to send to draw image for enforceBoundary: false
@@ -1491,7 +1491,7 @@ exports.default = VueCroppie;
                 var y1 = y0 + height;
 
                 self.data.points = [x0, y0, x1, y1];
-            } 
+            }
             else if (self.options.relative) {
                 points = [
                     points[0] * img.naturalWidth / 100,
