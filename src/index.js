@@ -1,4 +1,4 @@
-import Croppie from 'croppie';
+import {Croppie} from 'croppie';
 import 'croppie/croppie.css';
 
 const VueCroppie = {
@@ -10,9 +10,6 @@ const VueCroppie = {
           ref: 'croppieContainer', 
           id: 'croppieContainer', 
         })
-      },
-      mounted() {
-        this.initCroppie();
       },
       props: {
         boundary: {
@@ -26,7 +23,10 @@ const VueCroppie = {
         },
         customClass: String,
         enableExif: Boolean,
-        enableOrientation: Boolean,
+        enableOrientation: {
+          type: Boolean,
+          default: true
+        },
         enableResize: {
           type: Boolean,
           default: true
@@ -57,6 +57,9 @@ const VueCroppie = {
             }
           }
         },
+      },
+      mounted() {
+        this.initCroppie();
       },
       data() {
         return {
@@ -110,8 +113,7 @@ const VueCroppie = {
               } else {
                 cb(output);
               }
-              this.refresh();
-              return output
+              return output;
             });
         },
         refresh() {
@@ -120,7 +122,7 @@ const VueCroppie = {
         }
       }
     });
-    Vue.component('vue-croppie', comp)
+    Vue.component('vue-croppie', comp);
   }
 };
 
