@@ -1027,9 +1027,9 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-croppie@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/croppie/-/croppie-2.5.0.tgz#f730a29add1fd1e576437234bd047606864cc48e"
+croppie@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/croppie/-/croppie-2.6.1.tgz#54572ee3b7771106002569ad433e158efc2305c8"
 
 cross-spawn@^5.0.1:
   version "5.1.0"
