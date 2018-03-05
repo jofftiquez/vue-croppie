@@ -1,14 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Vue Croppie by Jofferson Tiquez</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <div id="app"></div>
-    <script src="./demo/build.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue Croppie by Jofferson Tiquez</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+  <script src="./dist/vue-croppie.js"></script>
+
+  <style>
+    body {}
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <img width="40" src="http://i.imgur.com/Gt1xIqP.png" alt="Vue Croppie"> Vue Croppie 
+        <code>v1.3.11</code>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a target="_blank" class="nav-link" href="https://github.com/jofftiquez/vue-croppie">
+              GitHub
+            </a>
+          </li>
+          <li class="nav-item active">
+              <a target="_blank" class="nav-link" href="https://twitter.com/jrtiquez">
+                @jrtiquez
+              </a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+    <br>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-xs-12 col-md-6">
+          <vue-croppie ref="croppieRef" :enableOrientation="true" @result="result" @update="update"></vue-croppie>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <img width="400" :src="cropped" alt="" class="rounded mx-auto d-block img-thumbnail" style="min-height: 400px;">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <center>
+              <button class="btn btn-dark" @click="bind()">Bind</button>
+              <button class="btn btn-dark" @click="rotate(+90)">Rotate Left</button>
+              <button class="btn btn-dark" @click="rotate(-90)">Rotate Right</button>
+              <button class="btn btn-dark" @click="crop()">Crop</button>
+            </center>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    Vue.use(VueCroppie.default);
+    var vm = new Vue({
+      el: '#app',
+      mounted() {
+        // Upon mounting of the component, we accessed the .bind({...})
+        // function to put an initial image on the canvas.
+        this.$refs.croppieRef.bind({
+          url: 'http://i.imgur.com/Fq2DMeH.jpg',
+        });
+        setTimeout(() => {
+          this.crop();
+        }, 1000);
+      },
+      data() {
+        return {
+          cropped: null,
+          images: [
+            'http://i.imgur.com/fHNtPXX.jpg',
+            'http://i.imgur.com/ecMUngU.jpg',
+            'http://i.imgur.com/7oO6zrh.jpg',
+            'http://i.imgur.com/miVkBH2.jpg'
+          ]
+        }
+      },
+      methods: {
+        bind() {
+          // Randomize cat photos, nothing special here.
+          let url = this.images[Math.floor(Math.random() * 4)];
+
+          // Just like what we did with .bind({...}) on 
+          // the mounted() function above.
+          this.$refs.croppieRef.bind({
+            url: url,
+          });
+        },
+        // CALBACK USAGE
+        crop() {
+          // Here we are getting the result via callback function
+          // and set the result to this.cropped which is being 
+          // used to display the result above.
+          let options = {
+            format: 'jpeg'
+          }
+          this.$refs.croppieRef.result(options, (output) => {
+            this.cropped = output;
+          });
+        },
+        // EVENT USAGE
+        cropViaEvent() {
+          this.$refs.croppieRef.result(options);
+        },
+        result(output) {
+          this.cropped = output;
+        },
+        update(val) {
+          console.log(val);
+        },
+        rotate(rotationAngle) {
+          // Rotates the image
+          this.$refs.croppieRef.rotate(rotationAngle);
+        }
+      }
+    });
+  </script>
+</body>
+
 </html>
