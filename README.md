@@ -12,6 +12,9 @@ VueCroppie is a [Vue](https://vuejs.org/) 2 wrapper for [Croppie](https://foliot
 
 `npm install vue-croppie --save`
 
+### CDN
+`https://unpkg.com/vue-croppie/dist/vue-croppie.js`
+
 ### Usage
 
 ```
@@ -19,6 +22,18 @@ import Vue from 'vue';
 import VueCroppie from 'vue-croppie';
 
 Vue.use(VueCroppie);
+```
+
+```html
+<script src="https://unpkg.com/vue-croppie/dist/vue-croppie.js">
+<body>
+  ...
+</body>
+<script>
+  Vue.use(VueCroppie.default);
+
+  const vm = new Vue({...});
+</script>
 ```
 
 # Sample 
