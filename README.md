@@ -40,7 +40,7 @@ Vue.use(VueCroppie);
 
 This sample below will produce [this](https://jofftiquez.github.io/vue-croppie/).
 
-```
+```vue
 <template>
     <div>
         <!-- Note that 'ref' is important here (value can be anything). read the description about `ref` below. -->
