@@ -45,7 +45,7 @@ This sample below will produce [this](https://jofftiquez.github.io/vue-croppie/)
     <div>
         <!-- Note that 'ref' is important here (value can be anything). read the description about `ref` below. -->
         <vue-croppie 
-            ref=croppieRef 
+            ref="croppieRef" 
             :enableOrientation="true"
             @result="result"
             @update="update">
