@@ -12,15 +12,7 @@ const VueCroppie = {
         })
       },
       props: {
-        boundary: {
-          type: Object,
-          default: function() {
-            return {
-              width: 400,
-              height: 400
-            }
-          }
-        },
+        boundary: Object,
         customClass: String,
         enableExif: Boolean,
         enableOrientation: {
@@ -69,13 +61,8 @@ const VueCroppie = {
       methods: {
         initCroppie() {
           let el = this.$refs.croppieContainer;
-
-          el.addEventListener('update', (ev) => {
-            this.$emit('update', ev.detail);
-          });
-
-          this.croppie = new Croppie(el, {
-            boundary: this.boundary,
+          
+          let options = {
             enableExif: this.enableExif,
             enableOrientation: this.enableOrientation,
             enableZoom: this.enableZoom,
@@ -84,7 +71,17 @@ const VueCroppie = {
             mouseWheelZoom: this.mouseWheelZoom,
             viewport: this.viewport,
             showZoomer: this.showZoomer
+          }
+
+          if(this.boundary) {
+            options.boundary = this.boundary;
+          }
+
+          el.addEventListener('update', (ev) => {
+            this.$emit('update', ev.detail);
           });
+
+          this.croppie = new Croppie(el, options);
         },
         bind(options) {
           return this.croppie.bind(options)
