@@ -24,7 +24,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
         <img width="40" src="http://i.imgur.com/Gt1xIqP.png" alt="Vue Croppie"> Vue Croppie 
-        <code>v1.3.11</code>
+        <code>v1.3.13</code>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -49,20 +49,26 @@
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-xs-12 col-md-6">
-          <vue-croppie ref="croppieRef" :enableOrientation="true" @result="result" @update="update"></vue-croppie>
+          <vue-croppie 
+            ref="croppieRef" 
+            :enableOrientation="true" 
+            @result="result" 
+            :boundary="{height: 400}"
+            @update="update">
+          </vue-croppie>
         </div>
         <div class="col-xs-12 col-md-6">
           <img width="400" :src="cropped" alt="" class="rounded mx-auto d-block img-thumbnail" style="min-height: 400px;">
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-12">
-          <center>
-              <button class="btn btn-dark" @click="bind()">Bind</button>
-              <button class="btn btn-dark" @click="rotate(+90)">Rotate Left</button>
-              <button class="btn btn-dark" @click="rotate(-90)">Rotate Right</button>
-              <button class="btn btn-dark" @click="crop()">Crop</button>
-            </center>
+      <div class="row mt-5 mb-5">
+        <div class="col-xs-12 col-md-12 text-center">
+          
+            <button class="btn btn-dark" @click="bind()">Bind</button>
+            <button class="btn btn-dark" @click="rotate(+90)">Rotate Left</button>
+            <button class="btn btn-dark" @click="rotate(-90)">Rotate Right</button>
+            <button class="btn btn-dark" @click="crop()">Crop</button>
+          
         </div>
       </div>
     </div>
