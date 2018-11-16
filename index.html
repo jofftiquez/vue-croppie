@@ -81,7 +81,7 @@
         // Upon mounting of the component, we accessed the .bind({...})
         // function to put an initial image on the canvas.
         this.$refs.croppieRef.bind({
-          url: 'http://i.imgur.com/Fq2DMeH.jpg',
+          url: 'https://fdca.s3-ap-southeast-2.amazonaws.com/c23d8a72-21f6-4c19-bad3-93601011ca42.jpg',
         });
         setTimeout(() => {
           this.crop();
@@ -101,7 +101,7 @@
       methods: {
         bind() {
           // Randomize cat photos, nothing special here.
-          let url = this.images[Math.floor(Math.random() * 4)];
+          let url = this.images[Math.floor(Math.random() * this.images.length)];
 
           // Just like what we did with .bind({...}) on 
           // the mounted() function above.
