@@ -22,13 +22,14 @@ VueCroppie is a [Vue](https://vuejs.org/) 2 wrapper for [Croppie](https://foliot
 
 ### Usage
 
+**For npm**
 ```
 import Vue from 'vue';
 import VueCroppie from 'vue-croppie';
 
 Vue.use(VueCroppie);
 ```
-
+**or without**
 ```html
 <script src="https://unpkg.com/vue-croppie/dist/vue-croppie.js">
 <body>
@@ -53,6 +54,7 @@ This sample below will produce [this](https://jofftiquez.github.io/vue-croppie/)
             ref="croppieRef" 
             :enableOrientation="true"
             @result="result"
+            :boundary="{height: 300, width: 300}"
             @update="update">
         </vue-croppie>
 
