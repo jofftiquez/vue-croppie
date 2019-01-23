@@ -7,8 +7,8 @@ const VueCroppie = {
       render(h){
         return h('div', {
           class: this.customClass,
-          ref: 'croppieContainer', 
-          id: 'croppieContainer', 
+          ref: 'croppieContainer',
+          id: 'croppieContainer',
         })
       },
       props: {
@@ -49,6 +49,8 @@ const VueCroppie = {
             }
           }
         },
+        minZoom: Number,
+        maxZoom: Number
       },
       mounted() {
         this.initCroppie();
@@ -61,7 +63,7 @@ const VueCroppie = {
       methods: {
         initCroppie() {
           let el = this.$refs.croppieContainer;
-          
+
           let options = {
             enableExif: this.enableExif,
             enableOrientation: this.enableOrientation,
@@ -70,7 +72,9 @@ const VueCroppie = {
             enforceBoundary: this.enforceBoundary,
             mouseWheelZoom: this.mouseWheelZoom,
             viewport: this.viewport,
-            showZoomer: this.showZoomer
+            showZoomer: this.showZoomer,
+            minZoom: this.minZoom,
+            maxZoom: this.maxZoom
           }
 
           if(this.boundary) {
