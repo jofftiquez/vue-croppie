@@ -1174,9 +1174,9 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     sha.js "^2.4.8"
 
 croppie@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/croppie/-/croppie-2.6.1.tgz#54572ee3b7771106002569ad433e158efc2305c8"
-  integrity sha512-M3JUSCL2hzRRcMKIX128dt8UGHSLXcPxJ4495Zyt87uZ/QjyGuu1hdYxOOOW2tUm3HCz9boqfOAdpz2PRET8ZA==
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/croppie/-/croppie-2.6.3.tgz#fab2a47e7559c010e91b3d8681dc73b410a8aaba"
+  integrity sha512-x0EGQF5GwUTzW7igxFu0eP9UM5JsK/3y0hIiFIVjV6zLd4EMsGZDIKhh7XwppQoZMDyEun3Ge7fWlu1jzp+iuA==
 
 cross-spawn@^5.0.1:
   version "5.1.0"
