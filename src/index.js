@@ -1,4 +1,4 @@
-import {Croppie} from 'croppie';
+import Croppie from 'croppie';
 import 'croppie/croppie.css';
 
 const VueCroppie = {
