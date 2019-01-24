@@ -4,7 +4,7 @@
 
 [![Join the chat at https://gitter.im/vue-croppie/Lobby](https://badges.gitter.im/vue-croppie/Lobby.svg)](https://gitter.im/vue-croppie/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <span class="badge-buymeacoffee"><a href="https://www.buymeacoffee.com/jofftiquez" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-green.svg" alt="Buy Me A Coffee donate button" /></a></span>
   <span>
-    <a href="https://www.npmjs.com/package/vue-stripe-checkout" title="NPM">
+    <a href="https://www.npmjs.com/package/vue-croppie" title="NPM">
       <img src="https://img.shields.io/npm/dt/vue-croppie.svg?style=shield" alt="NPM"/>
     </a>
   </span>
