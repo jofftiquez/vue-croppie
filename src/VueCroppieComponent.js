@@ -46,7 +46,9 @@ export default {
           type: 'square'
         }
       }
-    }
+    },
+    minZoom: Number,
+    maxZoom: Number
   },
   mounted () {
     this.initCroppie()
@@ -68,7 +70,9 @@ export default {
         enforceBoundary: this.enforceBoundary,
         mouseWheelZoom: this.mouseWheelZoom,
         viewport: this.viewport,
-        showZoomer: this.showZoomer
+        showZoomer: this.showZoomer,
+        minZoom: this.minZoom,
+        maxZoom: this.maxZoom
       }
 
       if (this.boundary) {
