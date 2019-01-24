@@ -32,7 +32,7 @@ const VueCroppie = {
           default: true
         },
         mouseWheelZoom: {
-          type: Boolean | String,
+          type: [Boolean, String],
           default: true
         },
         showZoomer: {
