@@ -15,28 +15,32 @@ VueCroppie is a [Vue](https://vuejs.org/) 2 wrapper for [Croppie](https://foliot
 
 ### NPM
 
-`npm install vue-croppie --save`
+```bash
+npm install vue-croppie --save
+```
 
 ### CDN
 `https://unpkg.com/vue-croppie/dist/vue-croppie.js`
 
-### Usage
+### Usage with a bundler
+TO use VueCroppie with Webpack, Parcel or other bundler
 
-```
+```js
 import Vue from 'vue';
 import VueCroppie from 'vue-croppie';
+import 'croppie/croppie.css' // import the croppie css manually
 
 Vue.use(VueCroppie);
 ```
 
+### Usage in Browser directly
 ```html
-<script src="https://unpkg.com/vue-croppie/dist/vue-croppie.js">
+<script src="https://unpkg.com/vue-croppie/dist/vue-croppie.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/croppie/croppie.css">
 <body>
   ...
 </body>
 <script>
-  Vue.use(VueCroppie.default);
-
   const vm = new Vue({...});
 </script>
 ```

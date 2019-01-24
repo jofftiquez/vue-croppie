@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/croppie/croppie.css">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -18,7 +19,7 @@
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
-        <img width="40" src="http://i.imgur.com/Gt1xIqP.png" alt="Vue Croppie"> Vue Croppie 
+        <img width="40" src="http://i.imgur.com/Gt1xIqP.png" alt="Vue Croppie"> Vue Croppie
         <code>v1.3.13</code>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -44,10 +45,10 @@
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-xs-12 col-md-6">
-          <vue-croppie 
-            ref="croppieRef" 
-            :enableOrientation="true" 
-            @result="result" 
+          <vue-croppie
+            ref="croppieRef"
+            :enableOrientation="true"
+            @result="result"
             :boundary="{height: 400}"
             @update="update">
           </vue-croppie>
@@ -58,18 +59,17 @@
       </div>
       <div class="row mt-5 mb-5">
         <div class="col-xs-12 col-md-12 text-center">
-          
+
             <button class="btn btn-dark" @click="bind()">Bind</button>
             <button class="btn btn-dark" @click="rotate(+90)">Rotate Left</button>
             <button class="btn btn-dark" @click="rotate(-90)">Rotate Right</button>
             <button class="btn btn-dark" @click="crop()">Crop</button>
-          
+
         </div>
       </div>
     </div>
   </div>
   <script>
-    Vue.use(VueCroppie.default);
     var vm = new Vue({
       el: '#app',
       mounted() {
@@ -99,7 +99,7 @@
           // Randomize cat photos, nothing special here.
           let url = this.images[Math.floor(Math.random() * this.images.length)];
 
-          // Just like what we did with .bind({...}) on 
+          // Just like what we did with .bind({...}) on
           // the mounted() function above.
           this.$refs.croppieRef.bind({
             url: url,
@@ -108,7 +108,7 @@
         // CALLBACK USAGE
         crop() {
           // Here we are getting the result via callback function
-          // and set the result to this.cropped which is being 
+          // and set the result to this.cropped which is being
           // used to display the result above.
           let options = {
             format: 'jpeg'
