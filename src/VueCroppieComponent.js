@@ -30,7 +30,7 @@ export default {
       default: true
     },
     mouseWheelZoom: {
-      type: Boolean,
+      type: [Boolean, String],
       default: true
     },
     showZoomer: {
