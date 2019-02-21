@@ -49,7 +49,8 @@
             :enableOrientation="true" 
             @result="result" 
             :boundary="{height: 400}"
-            @update="update">
+            @update="update"
+            :croppieInitialized="croppieInitialized">
           </vue-croppie>
         </div>
         <div class="col-xs-12 col-md-6">
@@ -130,6 +131,15 @@
         rotate(rotationAngle) {
           // Rotates the image
           this.$refs.croppieRef.rotate(rotationAngle);
+        },
+        croppieInitialized() {
+            // This method will be executed when the croppie is initialized
+            // You can use it to set the image
+
+            // this.$refs.croppieRef.bind({
+            //   url: 'http://i.imgur.com/Fv2YOM6.jpg',
+            // });
+            console.log('Croppie was initialized');
         }
       }
     });
