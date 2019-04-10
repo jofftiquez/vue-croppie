@@ -39,6 +39,10 @@ const VueCroppie = {
           type: Boolean,
           default: true
         },
+        croppieInitialized: {
+          type: Function,
+          default: function()  {}
+        },
         viewport: {
           type: Object,
           default: function() {
@@ -86,6 +90,8 @@ const VueCroppie = {
           });
 
           this.croppie = new Croppie(el, options);
+
+          this.croppieInitialized();
         },
         bind(options) {
           return this.croppie.bind(options)
