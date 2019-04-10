@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/jofftiquez/vue-croppie#readme",
   "dependencies": {
-    "croppie": "^2.6.3"
+    "croppie": "2.6.3"
   },
   "devDependencies": {
     "bili": "^3.4.2"
