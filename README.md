@@ -4,7 +4,7 @@
 
 [![Join the chat at https://gitter.im/vue-croppie/Lobby](https://badges.gitter.im/vue-croppie/Lobby.svg)](https://gitter.im/vue-croppie/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) <span class="badge-buymeacoffee"><a href="https://www.buymeacoffee.com/jofftiquez" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-green.svg" alt="Buy Me A Coffee donate button" /></a></span>
   <span>
-    <a href="https://www.npmjs.com/package/vue-stripe-checkout" title="NPM">
+    <a href="https://www.npmjs.com/package/vue-croppie" title="NPM">
       <img src="https://img.shields.io/npm/dt/vue-croppie.svg?style=shield" alt="NPM"/>
     </a>
   </span>
@@ -15,28 +15,32 @@ VueCroppie is a [Vue](https://vuejs.org/) 2 wrapper for [Croppie](https://foliot
 
 ### NPM
 
-`npm install vue-croppie --save`
+```bash
+npm install vue-croppie --save
+```
 
 ### CDN
 `https://unpkg.com/vue-croppie/dist/vue-croppie.js`
 
-### Usage
+### Usage with a bundler
+TO use VueCroppie with Webpack, Parcel or other bundler
 
-```
+```js
 import Vue from 'vue';
 import VueCroppie from 'vue-croppie';
+import 'croppie/croppie.css' // import the croppie css manually
 
 Vue.use(VueCroppie);
 ```
 
+### Usage in Browser directly
 ```html
-<script src="https://unpkg.com/vue-croppie/dist/vue-croppie.js">
+<script src="https://unpkg.com/vue-croppie/dist/vue-croppie.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/croppie/croppie.css">
 <body>
   ...
 </body>
 <script>
-  Vue.use(VueCroppie.default);
-
   const vm = new Vue({...});
 </script>
 ```
