@@ -2,11 +2,11 @@ import Croppie from 'croppie'
 
 export default {
   name: 'VueCroppie',
-  render (h) {
+  render(h){
     return h('div', {
       class: this.customClass,
       ref: 'croppieContainer',
-      id: 'croppieContainer'
+      id: 'croppieContainer',
     })
   },
   props: {
@@ -37,9 +37,13 @@ export default {
       type: Boolean,
       default: true
     },
+    croppieInitialized: {
+      type: Function,
+      default: function()  {}
+    },
     viewport: {
       type: Object,
-      default: function () {
+      default: function() {
         return {
           width: 200,
           height: 200,
@@ -50,17 +54,17 @@ export default {
     minZoom: Number,
     maxZoom: Number
   },
-  mounted () {
-    this.initCroppie()
+  mounted() {
+    this.initCroppie();
   },
-  data () {
+  data() {
     return {
       croppie: null
     }
   },
   methods: {
-    initCroppie () {
-      let el = this.$refs.croppieContainer
+    initCroppie() {
+      let el = this.$refs.croppieContainer;
 
       let options = {
         enableExif: this.enableExif,
@@ -75,49 +79,51 @@ export default {
         maxZoom: this.maxZoom
       }
 
-      if (this.boundary) {
-        options.boundary = this.boundary
+      if(this.boundary) {
+        options.boundary = this.boundary;
       }
 
       el.addEventListener('update', (ev) => {
-        this.$emit('update', ev.detail)
-      })
+        this.$emit('update', ev.detail);
+      });
 
-      this.croppie = new Croppie(el, options)
+      this.croppie = new Croppie(el, options);
+
+      this.croppieInitialized();
     },
-    bind (options) {
+    bind(options) {
       return this.croppie.bind(options)
     },
-    destroy () {
-      this.croppie.destroy()
+    destroy() {
+      this.croppie.destroy();
     },
-    get (cb) {
-      if (cb) {
+    get(cb) {
+      if(cb){
         cb(this.croppie.get())
       } else {
         return this.croppie.get()
       }
     },
-    rotate (angle) {
-      this.croppie.rotate(angle)
+    rotate(angle) {
+      this.croppie.rotate(angle);
     },
-    setZoom (value) {
-      this.croppie.setZoom(value)
+    setZoom(value) {
+      this.croppie.setZoom(value);
     },
-    result (options, cb) {
-      if (!options) options = { type: 'base64' }
-      return this.croppie.result(options).then(output => {
-        if (!cb) {
-          this.$emit('result', output)
-        } else {
-          cb(output)
-        }
-        return output
-      })
+    result(options, cb) {
+      if(!options) options = {type: 'base64'}
+        return this.croppie.result(options).then(output => {
+          if(!cb) {
+            this.$emit('result', output);
+          } else {
+            cb(output);
+          }
+          return output;
+        });
     },
-    refresh () {
-      this.croppie.destroy()
-      this.initCroppie()
+    refresh() {
+      this.croppie.destroy();
+      this.initCroppie();
     }
   }
 }

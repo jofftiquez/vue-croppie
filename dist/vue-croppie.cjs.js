@@ -43,6 +43,10 @@ var VueCroppieComponent = {
       type: Boolean,
       default: true
     },
+    croppieInitialized: {
+      type: Function,
+      default: function _default() {}
+    },
     viewport: {
       type: Object,
       default: function _default() {
@@ -90,6 +94,7 @@ var VueCroppieComponent = {
         _this.$emit('update', ev.detail);
       });
       this.croppie = new Croppie(el, options);
+      this.croppieInitialized();
     },
     bind: function bind(options) {
       return this.croppie.bind(options);

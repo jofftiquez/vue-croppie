@@ -1188,14 +1188,14 @@
 
 	        // By default assume we're going to draw the entire
 	        // source image onto the destination canvas.
-	        let sx = left;
-	        let sy = top;
-	        let sWidth = width;
-	        let sHeight = height;
-	        let dx = 0;
-	        let dy = 0;
-	        let dWidth = canvasWidth;
-	        let dHeight = canvasHeight;
+	        var sx = left,
+	        sy = top,
+	        sWidth = width,
+	        sHeight = height,
+	        dx = 0,
+	        dy = 0,
+	        dWidth = canvasWidth,
+	        dHeight = canvasHeight;
 
 	        //
 	        // Do not go outside of the original image's bounds along the x-axis.
@@ -1670,6 +1670,10 @@
 	      type: Boolean,
 	      default: true
 	    },
+	    croppieInitialized: {
+	      type: Function,
+	      default: function _default() {}
+	    },
 	    viewport: {
 	      type: Object,
 	      default: function _default() {
@@ -1717,6 +1721,7 @@
 	        _this.$emit('update', ev.detail);
 	      });
 	      this.croppie = new croppie(el, options);
+	      this.croppieInitialized();
 	    },
 	    bind: function bind(options) {
 	      return this.croppie.bind(options);

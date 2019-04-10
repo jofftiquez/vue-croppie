@@ -65,11 +65,12 @@
             @result="result"
             :boundary="{height: 400}"
             @update="update"
-        >
-        </vue-croppie>
-      </div>
-      <div class="col-xs-12 col-md-6">
-        <img width="400" :src="cropped" alt="" class="rounded mx-auto d-block img-thumbnail" style="min-height: 400px;">
+            :croppieInitialized="croppieInitialized">
+          </vue-croppie>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <img width="400" :src="cropped" alt="" class="rounded mx-auto d-block img-thumbnail" style="min-height: 400px;">
+        </div>
       </div>
     </div>
     <div class="row mt-5 mb-5">
@@ -110,44 +111,48 @@ var vm = new Vue({
     }
   },
   methods: {
-    bind () {
+    bind() {
       // Randomize cat photos, nothing special here.
-      let url = this.images[Math.floor(Math.random() * this.images.length)]
-
-      // Just like what we did with .bind({...}) on
+      let url = this.images[Math.floor(Math.random() * this.images.length)];
+      // Just like what we did with .bind({...}) on 
       // the mounted() function above.
       this.$refs.croppieRef.bind({
-        url: url
-      })
+        url: url,
+      });
     },
     // CALLBACK USAGE
-    crop () {
+    crop() {
       // Here we are getting the result via callback function
-      // and set the result to this.cropped which is being
+      // and set the result to this.cropped which is being 
       // used to display the result above.
       let options = {
         format: 'jpeg'
       }
       this.$refs.croppieRef.result(options, (output) => {
-        this.cropped = output
-      })
+        this.cropped = output;
+      });
     },
     // EVENT USAGE
-    cropViaEvent () {
-      let options = {
-        format: 'jpeg'
-      }
-      this.$refs.croppieRef.result(options)
+    cropViaEvent() {
+      this.$refs.croppieRef.result(options);
     },
-    result (output) {
-      this.cropped = output
+    result(output) {
+      this.cropped = output;
     },
-    update (val) {
-      console.log(val)
+    update(val) {
+      console.log(val);
     },
-    rotate (rotationAngle) {
+    rotate(rotationAngle) {
       // Rotates the image
-      this.$refs.croppieRef.rotate(rotationAngle)
+      this.$refs.croppieRef.rotate(rotationAngle);
+    },
+    croppieInitialized() {
+      // This method will be executed when the croppie is initialized
+      // You can use it to set the image
+      // this.$refs.croppieRef.bind({
+      //   url: 'http://i.imgur.com/Fv2YOM6.jpg',
+      // });
+      console.log('Croppie was initialized');
     }
   }
 })

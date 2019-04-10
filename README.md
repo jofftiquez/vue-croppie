@@ -169,6 +169,7 @@ Except for these few things below.
 |--------|------|---------|-------------|
 | `update` | function | `@update="fn"` | Gets triggered when the croppie element has been zoomed, dragged or cropped  |
 | `result` | function | `@result="fn"` | Gets triggered when the image has been cropped. Returns the cropped image. |
+| `croppieInitialized` | function | `@croppieInitialized="fn"` | Gets triggered when the croppie gets initialized. |
 
 *Note:*
 
