@@ -36,7 +36,7 @@ var VueCroppieComponent = {
       default: true
     },
     mouseWheelZoom: {
-      type: Boolean,
+      type: [Boolean, String],
       default: true
     },
     showZoomer: {
@@ -52,7 +52,9 @@ var VueCroppieComponent = {
           type: 'square'
         };
       }
-    }
+    },
+    minZoom: Number,
+    maxZoom: Number
   },
   mounted: function mounted() {
     this.initCroppie();
@@ -75,7 +77,9 @@ var VueCroppieComponent = {
         enforceBoundary: this.enforceBoundary,
         mouseWheelZoom: this.mouseWheelZoom,
         viewport: this.viewport,
-        showZoomer: this.showZoomer
+        showZoomer: this.showZoomer,
+        minZoom: this.minZoom,
+        maxZoom: this.maxZoom
       };
 
       if (this.boundary) {

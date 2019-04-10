@@ -1188,14 +1188,14 @@
 
 	        // By default assume we're going to draw the entire
 	        // source image onto the destination canvas.
-	        sx = left;
-	        sy = top;
-	        sWidth = width;
-	        sHeight = height;
-	        dx = 0;
-	        dy = 0;
-	        dWidth = canvasWidth;
-	        dHeight = canvasHeight;
+	        let sx = left;
+	        let sy = top;
+	        let sWidth = width;
+	        let sHeight = height;
+	        let dx = 0;
+	        let dy = 0;
+	        let dWidth = canvasWidth;
+	        let dHeight = canvasHeight;
 
 	        //
 	        // Do not go outside of the original image's bounds along the x-axis.
@@ -1663,7 +1663,7 @@
 	      default: true
 	    },
 	    mouseWheelZoom: {
-	      type: Boolean,
+	      type: [Boolean, String],
 	      default: true
 	    },
 	    showZoomer: {
@@ -1679,7 +1679,9 @@
 	          type: 'square'
 	        };
 	      }
-	    }
+	    },
+	    minZoom: Number,
+	    maxZoom: Number
 	  },
 	  mounted: function mounted() {
 	    this.initCroppie();
@@ -1702,7 +1704,9 @@
 	        enforceBoundary: this.enforceBoundary,
 	        mouseWheelZoom: this.mouseWheelZoom,
 	        viewport: this.viewport,
-	        showZoomer: this.showZoomer
+	        showZoomer: this.showZoomer,
+	        minZoom: this.minZoom,
+	        maxZoom: this.maxZoom
 	      };
 
 	      if (this.boundary) {
