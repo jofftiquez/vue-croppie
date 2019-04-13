@@ -13,9 +13,9 @@
 	var croppie = createCommonjsModule(function (module, exports) {
 	/*************************
 	 * Croppie
-	 * Copyright 2018
+	 * Copyright 2019
 	 * Foliotek
-	 * Version: 2.6.3
+	 * Version: 2.6.4
 	 *************************/
 	(function (root, factory) {
 	    if (typeof exports.nodeName !== 'string') {
@@ -1189,13 +1189,13 @@
 	        // By default assume we're going to draw the entire
 	        // source image onto the destination canvas.
 	        var sx = left,
-	        sy = top,
-	        sWidth = width,
-	        sHeight = height,
-	        dx = 0,
-	        dy = 0,
-	        dWidth = canvasWidth,
-	        dHeight = canvasHeight;
+	            sy = top,
+	            sWidth = width,
+	            sHeight = height,
+	            dx = 0,
+	            dy = 0,
+	            dWidth = canvasWidth,
+	            dHeight = canvasHeight;
 
 	        //
 	        // Do not go outside of the original image's bounds along the x-axis.
