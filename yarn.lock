@@ -1139,10 +1139,10 @@ cosmiconfig@^2.1.0, cosmiconfig@^2.1.1:
     parse-json "^2.2.0"
     require-from-string "^1.1.0"
 
-croppie@2.6.3:
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/croppie/-/croppie-2.6.3.tgz#fab2a47e7559c010e91b3d8681dc73b410a8aaba"
-  integrity sha512-x0EGQF5GwUTzW7igxFu0eP9UM5JsK/3y0hIiFIVjV6zLd4EMsGZDIKhh7XwppQoZMDyEun3Ge7fWlu1jzp+iuA==
+croppie@^2.6.4:
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/croppie/-/croppie-2.6.4.tgz#7477b8c5af560c09841f7c84f55066ba128544da"
+  integrity sha512-dK2gP7nmAuzMP8TU+JNPOmZJkMyp5VPMJxE/uvmiOC7Vzwon333eo2i9T40D5rqm9NrBJU/ovAyg7xDX2Swaiw==
 
 cross-spawn@^5.0.1:
   version "5.1.0"
