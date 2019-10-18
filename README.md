@@ -56,6 +56,7 @@ This sample below will produce [this](https://jofftiquez.github.io/vue-croppie/)
         <vue-croppie 
             ref="croppieRef" 
             :enableOrientation="true"
+            :boundary="{ width: 300, height: 300}"
             @result="result"
             @update="update">
         </vue-croppie>
