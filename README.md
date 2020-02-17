@@ -136,6 +136,58 @@ export default {
 </script>
 ```
 
+### File Upload Sample
+You can upload file instead of using direct image link.
+*Usage*
+In your form add a `file input` along with `vue-croppie` component.
+```html
+<input :class="form-control"  type="file" @change="croppie($event)/>
+ <vue-croppie ref="croppieRef" :enableOrientation="true" :boundary="{ width: 450, height: 300}" :viewport="{ width:400, height:250, 'type':'square' }">
+ </vue-croppie>
+<!-- the result -->
+<img v-bind:src="cropped">
+<button @click="crop()">Crop</button>
+```
+and add script to manage file upload and binding result to expected variable.
+```vue
+<script>
+export default {
+	data() {
+		return {
+			croppie_image: "",
+		};
+	},
+	methods: {
+		croppie(e) {
+			var files = e.target.files || e.dataTransfer.files;
+			if (!files.length) return;
+
+			var reader = new FileReader();
+			reader.onload = e => {
+				this.$refs.croppieRef.bind({
+					url: e.target.result
+				});
+			};
+
+			reader.readAsDataURL(files[0]);
+		},
+		crop() {
+    //options can be updated.
+    // current option will return a base64 version of the uploaded image with a size of 600px X 450px.
+			let options = {
+				type: "base64",
+				size: { width: 600, height: 450 },
+				format: "jpeg"
+			};
+			this.$refs.croppieRef.result(options, output => {
+				this.croppie_image = output;
+        console.log(this.croppie_image);
+			});
+		}
+	}
+};
+```
+
 ### Using Options
 
 All [Croppie options](https://foliotek.github.io/Croppie/) were converted to props to be able use them in the `vue-croppie` component.
