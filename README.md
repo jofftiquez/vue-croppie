@@ -11,7 +11,7 @@
 
 VueCroppie is a [Vue](https://vuejs.org/) 2 wrapper for [Croppie](https://foliotek.github.io/Croppie/) a beautiful photo cropping tool for Javascript by [foliotek](http://www.foliotek.com/).
 
-If you like this project, please give it a start, and consider following the author. :)
+If you like this project, please give it a star, and consider following the author. :)
 
 # Installation
 
