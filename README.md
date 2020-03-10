@@ -182,7 +182,7 @@ export default {
       };
       this.$refs.croppieRef.result(options, output => {
         this.cropped = this.croppieImage = output;
-          console.log(this.croppie_image);
+          console.log(this.croppieImage);
         });
       }
   }
