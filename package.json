@@ -1,6 +1,6 @@
 {
   "name": "vue-croppie",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "VueJs wrapper for Croppie",
   "main": "dist/vue-croppie.cjs.js",
   "module": "dist/vue-croppie.es.js",
