@@ -98,11 +98,8 @@ export default {
       this.croppie.destroy();
     },
     get(cb) {
-      if(cb){
-        cb(this.croppie.get())
-      } else {
-        return this.croppie.get()
-      }
+      if (!cb) return this.croppie.get();
+      cb(this.croppie.get());
     },
     rotate(angle) {
       this.croppie.rotate(angle);
@@ -112,14 +109,14 @@ export default {
     },
     result(options, cb) {
       if(!options) options = {type: 'base64'}
-        return this.croppie.result(options).then(output => {
-          if(!cb) {
-            this.$emit('result', output);
-          } else {
-            cb(output);
-          }
-          return output;
-        });
+      return this.croppie.result(options).then(output => {
+        if(!cb) {
+          this.$emit('result', output);
+        } else {
+          cb(output);
+        }
+        return output;
+      });
     },
     refresh() {
       this.croppie.destroy();
