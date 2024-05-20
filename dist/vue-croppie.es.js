@@ -97,11 +97,8 @@ var VueCroppieComponent = {
       this.croppie.destroy();
     },
     get: function get(cb) {
-      if (cb) {
-        cb(this.croppie.get());
-      } else {
-        return this.croppie.get();
-      }
+      if (!cb) return this.croppie.get();
+      cb(this.croppie.get());
     },
     rotate: function rotate(angle) {
       this.croppie.rotate(angle);
